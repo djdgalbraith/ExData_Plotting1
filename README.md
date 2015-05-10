@@ -10,6 +10,7 @@ The data used for this project was originally obtained from the [UCI Machine Lea
 
 ## Processing
 The data is processed by an R script function called prepare_data which does the following:
+
 1. Extracts the data from a zipped file
 2. Converts the date column to a Date representation
 3. Filters the data so we only have 2007-02-01 and 2007-02-02 present
@@ -17,12 +18,13 @@ The data is processed by an R script function called prepare_data which does the
 5. Returns the prepared data in a frame
 
 ## Files
-1. 'README.md' - this file.
+1. `README.md` - this file.
 1. `plot1.R`, `plot2.R`, `plot3.R` and `plot4.R` all contain the R script that processes the raw data and produces the data for plotting
 2. `plot1.R`, `plot2.R`, `plot3.R` and `plot4.R` also contain specific functionality to reproduce the reference plots 
 
 ## Analysis
-The code to perform the analysis is contained in the `run_analysys.R` script.  The source for the script must be loaded into the workspace, and the analysis can be initiated by executing the `process.data()` function.  This executes the steps:
+The reproduction graphs are produced by a collection of R scripts (`plot1.R`, `plot2.R`, `plot3.R` and `plot4.R`). Each script contains a function called `plotn (n=1..4)`.  The source for the script must be loaded into the workspace, and the analysis can be initiated by executing the `process.data()` function.  This executes the steps:
+
 1. Check and install the [downloader](http://cran.r-project.org/web/packages/downloader/index.html) package if required
 2. Check for the raw data file `household_power_consumption.zip` in the `data` subdirectory.  If the file is not present it will be downloaded from (https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip)
 3. Load and process the data into memory from the raw data file 'household_power_consumption.zip'
