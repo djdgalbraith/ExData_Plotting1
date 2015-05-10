@@ -84,7 +84,14 @@ plot.data <- function(df.power) {
              xlab = "", 
              ylab = "Global Active Power")
         
-        ## bottom-left
+        # top-right
+        plot(df.power$datetime,
+             df.power$Voltage,
+             type = "l",
+             xlab = "datetime", 
+             ylab = "Voltage")
+        
+        # bottom-left
         plot(df.power$datetime,
              df.power$Sub_metering_1, 
              type = "l",
@@ -111,12 +118,6 @@ plot.data <- function(df.power) {
              col = "black",
              xlab = "datetime", ylab = "Global_reactive_power")
         
-        # top-right
-        plot(df.power$datetime,
-             df.power$Voltage,
-             type = "l",
-             xlab = "datetime", 
-             ylab = "Voltage")
         
         dev.off()
 }
