@@ -1,114 +1,75 @@
-## Introduction
+## Coursera Exploratory Data Analysis Course Project 1
+Repository containing the course project for the Exploratory Data Analysis Course] (https://www.coursera.org/course/exdata-014) offered by Johns Hopkins University on Coursera.
 
-This assignment uses data from
-the <a href="http://archive.ics.uci.edu/ml/">UC Irvine Machine
-Learning Repository</a>, a popular repository for machine learning
-datasets. In particular, we will be using the "Individual household
-electric power consumption Data Set" which I have made available on
-the course web site:
+## Summary
+The project demonstrates the ability to work with the base graphics package with the goal of reproducing a number of reference plots.
 
-
-* <b>Dataset</b>: <a href="https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip">Electric power consumption</a> [20Mb]
-
-* <b>Description</b>: Measurements of electric power consumption in
-one household with a one-minute sampling rate over a period of almost
-4 years. Different electrical quantities and some sub-metering values
-are available.
+## Data
+The data used for this project was originally obtained from the [UCI Machine Learning Repository](http://archive.ics.uci.edu/ml/index.html) and is represents ([Individual household electric power consumption](https://archive.ics.uci.edu/ml/datasets/Individual+household+electric+power+consumption)).  A copy of this dataset ([Electric power consumption [20Mb]](https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip)) was obtained from the Course website.
 
 
-The following descriptions of the 9 variables in the dataset are taken
-from
-the <a href="https://archive.ics.uci.edu/ml/datasets/Individual+household+electric+power+consumption">UCI
-web site</a>:
+## Processing
+The data is processed by an R script function called prepare_data which does the following:
+1. Extracts the data from a zipped file
+2. Converts the date column to a Date representation
+3. Filters the data so we only have 2007-02-01 and 2007-02-02 present
+4. Converts the datetime column to a POSIXct (number of seconds since epoch) representation
+5. Returns the prepared data in a frame
 
-<ol>
-<li><b>Date</b>: Date in format dd/mm/yyyy </li>
-<li><b>Time</b>: time in format hh:mm:ss </li>
-<li><b>Global_active_power</b>: household global minute-averaged active power (in kilowatt) </li>
-<li><b>Global_reactive_power</b>: household global minute-averaged reactive power (in kilowatt) </li>
-<li><b>Voltage</b>: minute-averaged voltage (in volt) </li>
-<li><b>Global_intensity</b>: household global minute-averaged current intensity (in ampere) </li>
-<li><b>Sub_metering_1</b>: energy sub-metering No. 1 (in watt-hour of active energy). It corresponds to the kitchen, containing mainly a dishwasher, an oven and a microwave (hot plates are not electric but gas powered). </li>
-<li><b>Sub_metering_2</b>: energy sub-metering No. 2 (in watt-hour of active energy). It corresponds to the laundry room, containing a washing-machine, a tumble-drier, a refrigerator and a light. </li>
-<li><b>Sub_metering_3</b>: energy sub-metering No. 3 (in watt-hour of active energy). It corresponds to an electric water-heater and an air-conditioner.</li>
-</ol>
+## Files
+1. 'README.md' - this file.
+1. `plot1.R`, `plot2.R`, `plot3.R` and `plot4.R` all contain the R script that processes the raw data and produces the data for plotting
+2. `plot1.R`, `plot2.R`, `plot3.R` and `plot4.R` also contain specific functionality to reproduce the reference plots 
 
-## Loading the data
+## Analysis
+The code to perform the analysis is contained in the `run_analysys.R` script.  The source for the script must be loaded into the workspace, and the analysis can be initiated by executing the `process.data()` function.  This executes the steps:
+1. Check and install the [downloader](http://cran.r-project.org/web/packages/downloader/index.html) package if required
+2. Check for the raw data file `household_power_consumption.zip` in the `data` subdirectory.  If the file is not present it will be downloaded from (https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip)
+3. Load and process the data into memory from the raw data file 'household_power_consumption.zip'
+4. Reference plots are reproduced using the features of the Base Plotting System
+5. The raw data file `household_power_consumption.zip` is retained to avoid further downloads for addiitonal processing runs
 
-
-
-
-
-When loading the dataset into R, please consider the following:
-
-* The dataset has 2,075,259 rows and 9 columns. First
-calculate a rough estimate of how much memory the dataset will require
-in memory before reading into R. Make sure your computer has enough
-memory (most modern computers should be fine).
-
-* We will only be using data from the dates 2007-02-01 and
-2007-02-02. One alternative is to read the data from just those dates
-rather than reading in the entire dataset and subsetting to those
-dates.
-
-* You may find it useful to convert the Date and Time variables to
-Date/Time classes in R using the `strptime()` and `as.Date()`
-functions.
-
-* Note that in this dataset missing values are coded as `?`.
+Upon return from the `plot1()`, `plot2()`, `plot3()` and `plot4()` functions the reproductions of the reference plots will be in the working directory.
 
 
-## Making Plots
-
-Our overall goal here is simply to examine how household energy usage
-varies over a 2-day period in February, 2007. Your task is to
-reconstruct the following plots below, all of which were constructed
-using the base plotting system.
-
-First you will need to fork and clone the following GitHub repository:
-[https://github.com/rdpeng/ExData_Plotting1](https://github.com/rdpeng/ExData_Plotting1)
-
-
-For each plot you should
-
-* Construct the plot and save it to a PNG file with a width of 480
-pixels and a height of 480 pixels.
-
-* Name each of the plot files as `plot1.png`, `plot2.png`, etc.
-
-* Create a separate R code file (`plot1.R`, `plot2.R`, etc.) that
-constructs the corresponding plot, i.e. code in `plot1.R` constructs
-the `plot1.png` plot. Your code file **should include code for reading
-the data** so that the plot can be fully reproduced. You should also
-include the code that creates the PNG file.
-
-* Add the PNG file and R code file to your git repository
-
-When you are finished with the assignment, push your git repository to
-GitHub so that the GitHub version of your repository is up to
-date. There should be four PNG files and four R code files.
-
-
-The four plots that you will need to construct are shown below. 
-
+The four plots that you will constructed versus the reference plots are shown below. 
 
 ### Plot 1
 
+#### Reference
 
 ![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2.png) 
 
+#### Reproduction
+
+![reproduction of chunk unnamed-chunk-2 plot](plot1.png) 
 
 ### Plot 2
 
+#### Reference
+
 ![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3.png) 
 
+#### Reproduction
+
+![reproduction of chunk unnamed-chunk-3 plot](plot2.png) 
 
 ### Plot 3
 
+#### Reference
+
 ![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4.png) 
 
+#### Reproduction
+
+![reproduction of chunk unnamed-chunk-4 plot](plot3.png) 
 
 ### Plot 4
 
+#### Reference
+
 ![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5.png) 
 
+#### Reproduction
+
+![reproduction of chunk unnamed-chunk-5 plot](plot4.png) 
