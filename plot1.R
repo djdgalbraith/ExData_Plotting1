@@ -69,8 +69,8 @@ prepare.data <- function(file) {
 # create the plot and save it as a .png
 plot.data <- function(df.power) {
         png(file = "plot1.png", 
-            width = 480,
-            height = 480,
+            width = 504,
+            height = 504,
             units = "px",
             bg = NA)
         
